@@ -1,5 +1,9 @@
+Name: ResortVision
+
 Theme: Resorts API
     -API for Resort customer tracking
+
+Summary: This project creates an application that handles the resort bookings for customers.
 
 Models:
     Resort:
