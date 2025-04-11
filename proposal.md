@@ -7,14 +7,15 @@ Summary: This application handles the resort bookings for customers across multi
 
 Models:
     Resort:
-        -Customers
+        -Name
+        -Email
+        -Members
         -price
         -perks
-        -luxeries
         -Bookings
     
     Customer:
-        -ResortsVisited
+        -ResortMemberships
         -fName
         -lName
         -email
