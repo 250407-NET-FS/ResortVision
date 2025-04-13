@@ -48,7 +48,7 @@ Features:
 
     -Resorts can retrieve Bookings
 
-    -can get Resort luxeries and perks to be displayed
+    -can get Resort perks to be displayed
 
     -facilitate transactions between customers and Resorts
 
