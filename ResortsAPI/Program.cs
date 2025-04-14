@@ -14,8 +14,9 @@ builder.Services.AddSingleton<IBookingRepository, JsonBookingRepository>();
 builder.Services.AddSingleton<IResortRepository, JsonResortRepository>();
 
 //Services
+builder.Services.AddSingleton<ICustomerService, CustomerService>();
 builder.Services.AddSingleton<IBookingService, BookingService>();
-// possibly more services
+builder.Services.AddSingleton<IResortService, ResortService>();
 
 //Adding swagger to my dependencies
 builder.Services.AddEndpointsApiExplorer();
