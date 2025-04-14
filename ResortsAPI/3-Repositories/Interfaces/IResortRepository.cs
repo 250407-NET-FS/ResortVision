@@ -1,6 +1,6 @@
 using ResortsAPI.Models;
 
-namespace Library.Repositories;
+namespace ResortsAPI.Repositories;
 
 public interface IResortRepository
 {

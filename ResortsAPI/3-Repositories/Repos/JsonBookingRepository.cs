@@ -1,7 +1,7 @@
 using System.Text.Json;
 using ResortsAPI.Models;
 
-namespace Library.Repositories;
+namespace ResortsAPI.Repositories;
 
 public class JsonBookingRepository : IBookingRepository
 {
