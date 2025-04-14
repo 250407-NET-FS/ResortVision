@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "FhkFgvgFXiro8hpP0KMvmHSo+BLCYRmdzIHP8XCWGXc=",
+  "Source": "ResortsAPI",
+  "BasePath": "_content/ResortsAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

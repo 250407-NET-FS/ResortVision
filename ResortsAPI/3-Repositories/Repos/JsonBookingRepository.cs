@@ -33,11 +33,11 @@ public class JsonBookingRepository : IBookingRepository
         if (bookings.Any(b => b.BookingId == booking.BookingId))
             throw new Exception("Booking with same ID already exists");
         bookings.Add(booking);
-        SaveBooks(bookings);
+        SaveBookings(bookings);
         return booking;
     }
 
-    public bool SaveBooks(List<Booking> bookings){
+    public bool SaveBookings(List<Booking> bookings){
         using var stream = File.Create(_filePath); //Creating the file
         JsonSerializer.Serialize(stream, bookings);
         return true;
@@ -53,7 +53,7 @@ public class JsonBookingRepository : IBookingRepository
         }
 
         bookings[index] = booking;
-        SaveBooks(bookings);
+        SaveBookings(bookings);
         return booking;
     }
 

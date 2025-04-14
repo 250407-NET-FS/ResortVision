@@ -7,5 +7,5 @@ public interface IResortService
 {
     Resort AddResort(Resort resort);
 
-    bool CheckValidResort(Resort resort)
+    bool CheckValidResort(Resort resort);
 }
