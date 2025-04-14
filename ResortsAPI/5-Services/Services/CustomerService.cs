@@ -23,4 +23,23 @@ public class CustomerService : ICustomerService
         _resortRepo = resortRepo;
     }
 
+    public Customer AddCustomer(Customer customer){
+        CheckValidCustomer(customer);
+        _customerRepo.AddCustomer(customer);
+        return customer;
+    }
+
+    public bool CheckValidCustomer(Customer customer){
+        if(customer.Email is null || customer.Email == ""){
+            throw new Exception("Invalid Customer Email.");
+        }
+        if(customer.FName is null || customer.FName == ""){
+            throw new Exception("Invalid Customer First Name.");
+        }
+        if(customer.LName is null || customer.LName == ""){
+            throw new Exception("Invalid Customer Last Name.");
+        }
+        return true;
+    }
+
 }

@@ -14,5 +14,5 @@ public class Customer(string FName, string LName, string Email)
 
     public List<Booking> Bookings { get; set; } = [];
     
-    public List<Resort>? Memberships { get; set; } = [];
+    public List<Resort> Memberships { get; set; } = [];
 }
