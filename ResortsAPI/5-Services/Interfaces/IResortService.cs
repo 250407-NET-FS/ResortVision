@@ -5,6 +5,7 @@ namespace ResortsAPI.Repositories;
 
 public interface IResortService
 {
+    Resort CreateResort(PostResortDTO resortDTO);
     Resort AddResort(Resort resort);
 
     public static bool CheckValidResort(Resort resort){

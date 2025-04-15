@@ -11,4 +11,6 @@ public interface IResortRepository
     bool SaveResorts(List<Resort> resorts);
 
     Resort Update(Resort resort);
+
+    Resort Find(string email);
 }

@@ -11,4 +11,6 @@ public interface ICustomerRepository
     bool SaveCustomers(List<Customer> customers);
 
     Customer Update(Customer customer);
+
+    Customer Find(string email);
 }

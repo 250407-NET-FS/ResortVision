@@ -29,4 +29,9 @@ public class CustomerService : ICustomerService
         return customer;
     }
 
+    public Customer CreateCustomer(PostCustomerDTO customerDTO){
+        Customer customer = AddCustomer(new Customer(customerDTO.FName!, customerDTO.LName!, customerDTO.Email!));
+        return AddCustomer(customer);
+    }
+
 }

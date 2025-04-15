@@ -1,5 +1,5 @@
 namespace  ResortsAPI.Models;
-public class Resort(string Name, string Email, string Price, List<string> Perks){
+public class Resort(string Name, string Email, string Price){
 
     public Guid ResortId { get; set; } = Guid.NewGuid();
     
@@ -11,7 +11,7 @@ public class Resort(string Name, string Email, string Price, List<string> Perks)
 
     public string? Price { get; set; } = Price;
 
-    public List<string>? Perks { get; set; } = Perks;
+    public List<string> Perks { get; set; } = [];
 
     public List<Booking> Bookings { get; set; } = [];
 }

@@ -57,4 +57,15 @@ public class JsonCustomerRepository : ICustomerRepository
         SaveCustomers(customers);
         return customer;
     }
+
+    public Customer Find(string email){
+        List<Customer> customers = GetAllCustomers();
+
+        int index = customers.FindIndex(c => c.Email == email);
+
+        if(index == -1){
+            throw new Exception("Customer not found.");
+        }
+        return customers[index];
+    }
 }

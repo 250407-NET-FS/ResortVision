@@ -23,6 +23,11 @@ public class ResortService : IResortService
         _resortRepo = resortRepo;
     }
 
+    public Resort CreateResort(PostResortDTO resortDTO){
+        Resort resort = AddResort(new Resort(resortDTO.Email!, resortDTO.Name!, resortDTO.Price!));
+        return AddResort(resort);
+    }
+
     public Resort AddResort(Resort resort){
         IResortService.CheckValidResort(resort);
         return _resortRepo.AddResort(resort);

@@ -5,6 +5,7 @@ namespace ResortsAPI.Repositories;
 
 public interface IBookingService
 {
+    Booking CreateBooking(PostBookingDTO bookingDTO);
     Booking AddBooking(Booking booking);
     public static bool CheckValidBooking(Booking booking){
         if(booking.Customer is null || !ICustomerService.CheckValidCustomer(booking.Customer)){

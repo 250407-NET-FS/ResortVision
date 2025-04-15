@@ -5,6 +5,7 @@ namespace ResortsAPI.Repositories;
 
 public interface ICustomerService
 {
+    Customer CreateCustomer(PostCustomerDTO customerDTO);
     Customer AddCustomer(Customer customer);
 
     public static bool CheckValidCustomer(Customer customer){

@@ -57,4 +57,15 @@ public class JsonResortRepository : IResortRepository
         SaveResorts(resorts);
         return resort;
     }
+
+    public Resort Find(string email){
+        List<Resort> resorts = GetAllResorts();
+
+        int index = resorts.FindIndex(r => r.Email == email);
+
+        if(index == -1){
+            throw new Exception("Resort not found.");
+        }
+        return resorts[index];
+    }
 }

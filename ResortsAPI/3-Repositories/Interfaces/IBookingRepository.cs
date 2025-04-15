@@ -11,4 +11,6 @@ public interface IBookingRepository
     bool SaveBookings(List<Booking> bookings);
 
     Booking Update(Booking booking);
+
+    List<Booking> Find(string customerEmail);
 }

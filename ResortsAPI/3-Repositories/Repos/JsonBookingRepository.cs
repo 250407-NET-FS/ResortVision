@@ -57,4 +57,12 @@ public class JsonBookingRepository : IBookingRepository
         return booking;
     }
 
+    public List<Booking> Find(string customerEmail){
+        List<Booking> bookings = GetAllBookings();
+
+        List<Booking> result = bookings.FindAll(b => b.Customer!.Email == customerEmail);
+
+        return result;
+    }
+
 }

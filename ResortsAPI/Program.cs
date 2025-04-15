@@ -46,11 +46,11 @@ if (app.Environment.IsDevelopment())
 // -Create Customer
 app.MapPost(
     "/customer",
-    (Customer customer, ICustomerService service) =>
+    (PostCustomerDTO customerDTO, ICustomerService service) =>
     {
         try
         {
-            var createdCustomer = service.AddCustomer(customer);
+            var createdCustomer = service.CreateCustomer(customerDTO);
             return Results.Created($"/books/{createdCustomer.CustomerId}", createdCustomer);
         }
         catch (Exception ex)
