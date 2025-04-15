@@ -77,21 +77,21 @@ app.MapPost(
     }
 );
 
-// //  -Customer can become member of Resort
-// app.MapPut(
-//     "/member",
-//     (ResortMemberDTO request, IBookingService service) =>
-//     {
-//         try
-//         {
-//             return Results.Ok(service.AddMember(request));
-//         }
-//         catch (Exception ex)
-//         {
-//             return Results.Problem(ex.Message);
-//         }
-//     }
-// );
+//  -Customer can become member of Resort
+app.MapPut(
+    "/member",
+    (ResortMemberDTO request, ICustomerService service) =>
+    {
+        try
+        {
+            return Results.Ok(service.AddMember(request));
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem(ex.Message);
+        }
+    }
+);
 
 // //  -Customer can add to balance
 // app.MapPut(

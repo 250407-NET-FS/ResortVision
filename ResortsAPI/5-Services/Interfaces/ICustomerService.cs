@@ -8,6 +8,8 @@ public interface ICustomerService
     Customer CreateCustomer(PostCustomerDTO customerDTO);
     Customer AddCustomer(Customer customer);
 
+    bool AddMember(ResortMemberDTO memberDTO);
+
     public static bool CheckValidCustomer(Customer customer){
         if(customer.Email is null || customer.Email == ""){
             throw new Exception("Invalid Customer Email.");
