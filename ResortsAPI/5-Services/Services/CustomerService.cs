@@ -29,7 +29,7 @@ public class CustomerService : ICustomerService
         return customer;
     }
 
-    public bool CheckValidCustomer(Customer customer){
+    public static bool CheckValidCustomer(Customer customer){
         if(customer.Email is null || customer.Email == ""){
             throw new Exception("Invalid Customer Email.");
         }

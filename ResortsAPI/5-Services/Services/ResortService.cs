@@ -28,7 +28,7 @@ public class ResortService : IResortService
         return _resortRepo.AddResort(resort);
     }
 
-    public bool CheckValidResort(Resort resort){
+    public static bool CheckValidResort(Resort resort){
         if(resort.Email is null || resort.Email == ""){
             throw new Exception("Invalid Resort Email.");
         }
