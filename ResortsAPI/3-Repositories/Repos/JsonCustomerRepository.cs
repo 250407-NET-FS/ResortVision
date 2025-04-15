@@ -31,8 +31,9 @@ public class JsonCustomerRepository : ICustomerRepository
     public Customer AddCustomer(Customer customer)
     {
         List<Customer> customers = GetAllCustomers();
-        if (customers.Any(c => c.Email == customer.Email))
+        if (customers.Any(c => c.Email == customer.Email)){
             throw new Exception("Customer with same Email already exists");
+        }
         customers.Add(customer);
         SaveCustomers(customers);
         return customer;

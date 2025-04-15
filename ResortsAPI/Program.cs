@@ -51,7 +51,7 @@ app.MapPost(
         try
         {
             var createdCustomer = service.CreateCustomer(customerDTO);
-            return Results.Created($"/books/{createdCustomer.CustomerId}", createdCustomer);
+            return Results.Ok();
         }
         catch (Exception ex)
         {
@@ -63,12 +63,12 @@ app.MapPost(
 //  -Create Resort
 app.MapPost(
     "/resort",
-    (Resort resort, IResortService service) =>
+    (PostResortDTO resortDTO, IResortService service) =>
     {
         try
         {
-            var createdResort = service.AddResort(resort);
-            return Results.Created($"/books/{createdResort.ResortId}", createdResort);
+            var createdResort = service.CreateResort(resortDTO);
+            return Results.Ok();
         }
         catch (Exception ex)
         {

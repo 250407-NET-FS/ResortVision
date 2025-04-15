@@ -139,3 +139,6 @@ C:\Users\eyesa\OneDrive\Desktop\Project1\IsaacW\ResortsAPI\bin\Debug\net9.0\ru\M
 C:\Users\eyesa\OneDrive\Desktop\Project1\IsaacW\ResortsAPI\bin\Debug\net9.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\eyesa\OneDrive\Desktop\Project1\IsaacW\ResortsAPI\bin\Debug\net9.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\eyesa\OneDrive\Desktop\Project1\IsaacW\ResortsAPI\bin\Debug\net9.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\eyesa\OneDrive\Desktop\Project1\IsaacW\ResortsAPI\bin\Debug\net9.0\4-Data-Files\bookings.json
+C:\Users\eyesa\OneDrive\Desktop\Project1\IsaacW\ResortsAPI\bin\Debug\net9.0\4-Data-Files\customers.json
+C:\Users\eyesa\OneDrive\Desktop\Project1\IsaacW\ResortsAPI\bin\Debug\net9.0\4-Data-Files\resorts.json

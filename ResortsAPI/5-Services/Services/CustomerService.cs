@@ -25,12 +25,11 @@ public class CustomerService : ICustomerService
 
     public Customer AddCustomer(Customer customer){
         ICustomerService.CheckValidCustomer(customer);
-        _customerRepo.AddCustomer(customer);
-        return customer;
+        return _customerRepo.AddCustomer(customer);
     }
 
     public Customer CreateCustomer(PostCustomerDTO customerDTO){
-        Customer customer = AddCustomer(new Customer(customerDTO.FName!, customerDTO.LName!, customerDTO.Email!));
+        Customer customer = new(customerDTO.FName!, customerDTO.LName!, customerDTO.Email!);
         return AddCustomer(customer);
     }
 

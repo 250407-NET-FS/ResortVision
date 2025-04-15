@@ -24,7 +24,7 @@ public class ResortService : IResortService
     }
 
     public Resort CreateResort(PostResortDTO resortDTO){
-        Resort resort = AddResort(new Resort(resortDTO.Email!, resortDTO.Name!, resortDTO.Price!));
+        Resort resort = new(resortDTO.Email!, resortDTO.Name!, resortDTO.Price!);
         return AddResort(resort);
     }
 
