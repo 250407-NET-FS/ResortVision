@@ -65,4 +65,12 @@ public class JsonBookingRepository : IBookingRepository
         return result;
     }
 
+    public List<Booking> FindResort(string resortEmail){
+        List<Booking> bookings = GetAllBookings();
+
+        List<Booking> result = bookings.FindAll(b => b.Resort!.Email == resortEmail);
+
+        return result;
+    }
+
 }

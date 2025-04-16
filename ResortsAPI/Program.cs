@@ -109,69 +109,69 @@ app.MapPut(
     }
 );
 
-// //  -Customer can get booking history
-// app.MapGet(
-//     "/customer/booking",
-//     (string email, IBookingService service) =>
-//     {
-//         try
-//         {
-//             return Results.Ok(service.GetCustomerBooking());
-//         }
-//         catch (Exception ex)
-//         {
-//             return Results.Problem(ex.Message);
-//         }
-//     }
-// );
+//  -Customer can get booking history
+app.MapGet(
+    "/customer/booking",
+    (string email, ICustomerService service) =>
+    {
+        try
+        {
+            return Results.Ok(service.GetCustomerBooking(email));
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem(ex.Message);
+        }
+    }
+);
 
-// //  -Customer can get Resort memberships
-// app.MapGet(
-//     "/customer/member",
-//     (string email, IBookingService service) =>
-//     {
-//         try
-//         {
-//             return Results.Ok(service.GetCustomerMemberships());
-//         }
-//         catch (Exception ex)
-//         {
-//             return Results.Problem(ex.Message);
-//         }
-//     }
-// );
+//  -Customer can get Resort memberships
+app.MapGet(
+    "/customer/member",
+    (string email, ICustomerService service) =>
+    {
+        try
+        {
+            return Results.Ok(service.GetCustomerMemberships(email));
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem(ex.Message);
+        }
+    }
+);
 
-// //  -Resorts can retrieve Members
-// app.MapGet(
-//     "/Resort/member",
-//     (string email, IBookingService service) =>
-//     {
-//         try
-//         {
-//             return Results.Ok(service.GetResortMemberships());
-//         }
-//         catch (Exception ex)
-//         {
-//             return Results.Problem(ex.Message);
-//         }
-//     }
-// );
+//  -Resorts can retrieve Members
+app.MapGet(
+    "/Resort/member",
+    (string email, IResortService service) =>
+    {
+        try
+        {
+            return Results.Ok(service.GetResortMembers(email));
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem(ex.Message);
+        }
+    }
+);
 
-// //  -Resorts can retrieve Bookings
-// app.MapGet(
-//     "/Resort/booking",
-//     (string email, IBookingService service) =>
-//     {
-//         try
-//         {
-//             return Results.Ok(service.GetResortBookings());
-//         }
-//         catch (Exception ex)
-//         {
-//             return Results.Problem(ex.Message);
-//         }
-//     }
-// );
+//  -Resorts can retrieve Bookings
+app.MapGet(
+    "/Resort/booking",
+    (string email, IBookingService service) =>
+    {
+        try
+        {
+            return Results.Ok(service.GetResortBookings(email));
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem(ex.Message);
+        }
+    }
+);
 
 // //  -Resorts can update Price
 // app.MapPut(

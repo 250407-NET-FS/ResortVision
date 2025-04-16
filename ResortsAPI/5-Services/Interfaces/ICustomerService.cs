@@ -12,6 +12,10 @@ public interface ICustomerService
 
     bool AddMember(ResortMemberDTO memberDTO);
 
+    List<Booking> GetCustomerBooking(string email);
+
+    List<string> GetCustomerMemberships(string email);
+
     public static bool CheckValidCustomer(Customer customer){
         if(customer.Email is null || customer.Email == ""){
             throw new Exception("Invalid Customer Email.");

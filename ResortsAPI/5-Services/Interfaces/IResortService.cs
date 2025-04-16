@@ -8,6 +8,10 @@ public interface IResortService
     Resort CreateResort(PostResortDTO resortDTO);
     Resort AddResort(Resort resort);
 
+    List<string> GetResortMembers(string email);
+
+    List<Booking> GetResortBookings(string email);
+
     public static bool CheckValidResort(Resort resort){
         if(resort.Email is null || resort.Email == ""){
             throw new Exception("Invalid Resort Email.");

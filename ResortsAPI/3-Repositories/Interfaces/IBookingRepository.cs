@@ -13,4 +13,6 @@ public interface IBookingRepository
     Booking Update(Booking booking);
 
     List<Booking> Find(string customerEmail);
+
+    List<Booking> FindResort(string resortEmail);
 }

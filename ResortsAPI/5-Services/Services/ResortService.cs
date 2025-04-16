@@ -33,4 +33,20 @@ public class ResortService : IResortService
         return _resortRepo.AddResort(resort);
     }
 
+    public List<string> GetResortMembers(string email){
+        if(email is null || email == ""){
+            throw new Exception("Invalid Email");
+        }
+        Resort resort = _resortRepo.Find(email);
+        return resort.Members;
+    }
+
+    public List<Booking> GetResortBookings(string email){
+        if(email is null || email == ""){
+            throw new Exception("Invalid Email");
+        }
+        Resort resort = _resortRepo.Find(email);
+        List<Booking> bookings = _bookingRepo.FindResort(resort.Email!);
+        return bookings;
+    }
 }

@@ -85,4 +85,21 @@ public class CustomerService : ICustomerService
         return customer.Balance;
     }
 
+    public List<Booking> GetCustomerBooking(string email){
+        if(email is null || email == ""){
+            throw new Exception("Invalid Email");
+        }
+        Customer customer = _customerRepo.Find(email);
+        List<Booking> bookings = _bookingRepo.Find(customer.Email!);
+        return bookings;
+    }
+
+
+    public List<string> GetCustomerMemberships(string email){
+        if(email is null || email == ""){
+            throw new Exception("Invalid Email");
+        }
+        Customer customer = _customerRepo.Find(email);
+        return customer.Memberships;
+    }
 }
