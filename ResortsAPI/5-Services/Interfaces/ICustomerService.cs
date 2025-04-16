@@ -8,6 +8,8 @@ public interface ICustomerService
     Customer CreateCustomer(PostCustomerDTO customerDTO);
     Customer AddCustomer(Customer customer);
 
+    string AddToCustomerBalance(AddToCustomerBalanceDTO balanceDTO);
+
     bool AddMember(ResortMemberDTO memberDTO);
 
     public static bool CheckValidCustomer(Customer customer){

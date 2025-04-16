@@ -93,21 +93,21 @@ app.MapPut(
     }
 );
 
-// //  -Customer can add to balance
-// app.MapPut(
-//     "/customer/balance",
-//     (AddToCustomerBalanceDTO request, IBookingService service) =>
-//     {
-//         try
-//         {
-//             return Results.Ok(service.AddToCustomerBalance(request));
-//         }
-//         catch (Exception ex)
-//         {
-//             return Results.Problem(ex.Message);
-//         }
-//     }
-// );
+//  -Customer can add to balance
+app.MapPut(
+    "/customer/balance",
+    (AddToCustomerBalanceDTO request, ICustomerService service) =>
+    {
+        try
+        {
+            return Results.Ok(service.AddToCustomerBalance(request));
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem(ex.Message);
+        }
+    }
+);
 
 // //  -Customer can get booking history
 // app.MapGet(

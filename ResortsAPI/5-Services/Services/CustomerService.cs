@@ -62,4 +62,27 @@ public class CustomerService : ICustomerService
         return true;
     }
 
+    public string AddToCustomerBalance(AddToCustomerBalanceDTO balanceDTO){
+        // check if amount is valid or email is valid
+        if(balanceDTO.Amount is null || balanceDTO.Amount == ""){
+            throw new Exception("Invalid Amount");
+        }
+        if(balanceDTO.CustomerEmail is null || balanceDTO.CustomerEmail == ""){
+            throw new Exception("Invalid Email");
+        }
+        double balance_add = double.Parse(balanceDTO.Amount);
+        if(balance_add <= 0.00){
+            throw new Exception("Amount must be Positive");
+        }
+        // get customer
+        Customer customer = _customerRepo.Find(balanceDTO.CustomerEmail);
+        // add balance
+        double balance = double.Parse(customer.Balance);
+        balance += balance_add;
+        customer.Balance = balance.ToString();
+        // save to repo
+        _customerRepo.Update(customer);
+        return customer.Balance;
+    }
+
 }
