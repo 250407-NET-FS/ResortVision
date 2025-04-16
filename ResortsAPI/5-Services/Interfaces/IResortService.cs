@@ -14,6 +14,12 @@ public interface IResortService
 
     string UpdateResortPrice(UpdateResortPriceDTO resortPriceDTO);
 
+    List<string> GetResortPerks(string email);
+
+    string AddResortPerk(ResortPerkDTO resortPerkDTO);
+
+    string GetResortPrice(string email);
+
     public static bool CheckValidResort(Resort resort){
         if(resort.Email is null || resort.Email == ""){
             throw new Exception("Invalid Resort Email.");

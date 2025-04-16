@@ -16,6 +16,8 @@ public interface ICustomerService
 
     List<string> GetCustomerMemberships(string email);
 
+    bool DeleteMembership(ResortMemberDTO resortMemberDTO);
+
     public static bool CheckValidCustomer(Customer customer){
         if(customer.Email is null || customer.Email == ""){
             throw new Exception("Invalid Customer Email.");

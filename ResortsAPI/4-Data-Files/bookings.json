@@ -1,1 +1,1 @@
-[]
+[{"BookingId":"e0b93fe9-cc36-4e3e-b538-6774ba8d1c26","Customer":{"CustomerId":"2d033a82-16fd-4db1-a8be-b34cde29fb67","FName":"Joey","LName":"Diaz","Email":"joeydiaz@gmail.com","Balance":"76.49","Bookings":[],"Memberships":["johns@gmail.com"]},"Resort":{"ResortId":"5b823a37-cc54-4537-86ed-eb6346cc19a2","Email":"johns@gmail.com","Name":"John\u0027s","Members":["joeydiaz@gmail.com"],"Price":"12.00","Perks":[],"Bookings":[]},"Cost":"12.00","Date":"2025-04-15T22:16:44.1004762-05:00"}]

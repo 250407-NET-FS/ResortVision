@@ -189,68 +189,85 @@ app.MapPut(
     }
 );
 
-// //  -Customer can get Resort Perks
-// app.MapGet(
-//     "/Resort/perk",
-//     (string email, IBookingService service) =>
-//     {
-//         try
-//         {
-//             return Results.Ok(service.GetResortPerks());
-//         }
-//         catch (Exception ex)
-//         {
-//             return Results.Problem(ex.Message);
-//         }
-//     }
-// );
+//  -Resorts can add Perks
+app.MapPost(
+    "/resort/perk",
+    (ResortPerkDTO request, IResortService service) =>
+    {
+        try
+        {
+            return Results.Ok(service.AddResortPerk(request));
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem(ex.Message);
+        }
+    }
+);
 
-// //  -Customer can get Resort Price
-// app.MapGet(
-//     "/Resort/price",
-//     (string email, IBookingService service) =>
-//     {
-//         try
-//         {
-//             return Results.Ok(service.GetResortPrice());
-//         }
-//         catch (Exception ex)
-//         {
-//             return Results.Problem(ex.Message);
-//         }
-//     }
-// );
+//  -Customer can get Resort Perks
+app.MapGet(
+    "/Resort/perk",
+    (string email, IResortService service) =>
+    {
+        try
+        {
+            return Results.Ok(service.GetResortPerks(email));
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem(ex.Message);
+        }
+    }
+);
 
-// //  -Customer can book a Resort
-// app.MapPost(
-//     "/customer/book",
-//     (ResortMemberDTO request, IBookingService service) =>
-//     {
-//         try
-//         {
-//             return Results.Ok(service.Book(request));
-//         }
-//         catch (Exception ex)
-//         {
-//             return Results.Problem(ex.Message);
-//         }
-//     }
-// );
+//  -Customer can get Resort Price
+app.MapGet(
+    "/Resort/price",
+    (string email, IResortService service) =>
+    {
+        try
+        {
+            return Results.Ok(service.GetResortPrice(email));
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem(ex.Message);
+        }
+    }
+);
 
-// //  -Customer can delete Resort Memberiship
-// app.MapDelete(
-//     "/customer/member",
-//     (ResortMemberDTO request, IBookingService service) =>
-//     {
-//         try
-//         {
-//             return Results.Ok(service.DeleteMembership(request));
-//         }
-//         catch (Exception ex)
-//         {
-//             return Results.Problem(ex.Message);
-//         }
-//     }
-// );
+//  -Customer can book a Resort
+app.MapPost(
+    "/customer/book",
+    (PostBookingDTO request, IBookingService service) =>
+    {
+        try
+        {
+            return Results.Ok(service.CreateBooking(request));
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem(ex.Message);
+        }
+    }
+);
+
+//  -Customer can delete Resort Memberiship
+app.MapDelete(
+    "/customer/member/{customerEmail}/{resortEmail}",
+    (string customerEmail, string resortEmail, ICustomerService service) =>
+    {
+        try
+        {
+            var dto = new ResortMemberDTO { CustomerEmail = customerEmail, ResortEmail = resortEmail };
+            return Results.Ok(service.DeleteMembership(dto));
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem(ex.Message);
+        }
+    }
+);
 
 app.Run();

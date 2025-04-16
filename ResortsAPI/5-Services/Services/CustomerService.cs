@@ -102,4 +102,20 @@ public class CustomerService : ICustomerService
         Customer customer = _customerRepo.Find(email);
         return customer.Memberships;
     }
+
+    public bool DeleteMembership(ResortMemberDTO resortMemberDTO){
+        if(resortMemberDTO.ResortEmail is null || resortMemberDTO.ResortEmail == ""){
+            throw new Exception("Invalid Resort Email");
+        }
+        if(resortMemberDTO.CustomerEmail is null || resortMemberDTO.CustomerEmail == ""){
+            throw new Exception("Invalid Customer Email");
+        }
+        Resort resort = _resortRepo.Find(resortMemberDTO.ResortEmail);
+        Customer customer = _customerRepo.Find(resortMemberDTO.CustomerEmail);
+        resort.Members.Remove(customer.Email!);
+        customer.Memberships.Remove(resort.Email!);
+        _customerRepo.Update(customer);
+        _resortRepo.Update(resort);
+        return true;
+    }
 }

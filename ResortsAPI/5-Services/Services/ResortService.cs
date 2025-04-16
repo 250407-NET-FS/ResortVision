@@ -59,6 +59,36 @@ public class ResortService : IResortService
         }
         Resort resort = _resortRepo.Find(resortPriceDTO.ResortEmail);
         resort.Price = resortPriceDTO.Price;
+        _resortRepo.Update(resort);
         return resort.Price;
+    }
+
+    public List<string> GetResortPerks(string email){
+        if(email is null || email == ""){
+            throw new Exception("Email is Invalid");
+        }
+        Resort resort = _resortRepo.Find(email);
+        return resort.Perks;
+    }
+
+    public string AddResortPerk(ResortPerkDTO resortPerkDTO){
+        if(resortPerkDTO.Email is null || resortPerkDTO.Email == ""){
+            throw new Exception("Email Invalid");
+        }
+        if(resortPerkDTO.Perk is null || resortPerkDTO.Perk == ""){
+            throw new Exception("Perk Invalid");
+        }
+        Resort resort = _resortRepo.Find(resortPerkDTO.Email);
+        resort.Perks.Add(resortPerkDTO.Perk);
+        _resortRepo.Update(resort);
+        return resortPerkDTO.Perk;
+    }
+
+    public string GetResortPrice(string email){
+        if(email is null || email == ""){
+            throw new Exception("Email is Invalid");
+        }
+        Resort resort = _resortRepo.Find(email);
+        return resort.Price!;
     }
 }
