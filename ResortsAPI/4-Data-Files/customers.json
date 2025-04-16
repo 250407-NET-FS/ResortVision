@@ -1,1 +1,1 @@
-[{"CustomerId":"2d033a82-16fd-4db1-a8be-b34cde29fb67","FName":"Joey","LName":"Diaz","Email":"joeydiaz@gmail.com","Balance":"130.42000000000002","Bookings":[],"Memberships":["johns@gmail.com"]}]
+[{"CustomerId":"2d033a82-16fd-4db1-a8be-b34cde29fb67","FName":"Joey","LName":"Diaz","Email":"joeydiaz@gmail.com","Balance":"88.49","Bookings":[],"Memberships":["johns@gmail.com"]},{"CustomerId":"313306cc-af9e-474e-81e5-e8efda312d34","FName":"Jane","LName":"Doe","Email":"JD@gmail.com","Balance":"71.56","Bookings":[],"Memberships":["johns@gmail.com"]}]
