@@ -49,4 +49,16 @@ public class ResortService : IResortService
         List<Booking> bookings = _bookingRepo.FindResort(resort.Email!);
         return bookings;
     }
+
+    public string UpdateResortPrice(UpdateResortPriceDTO resortPriceDTO){
+        if(resortPriceDTO.ResortEmail is null || resortPriceDTO.ResortEmail == ""){
+            throw new Exception("Email Invalid");
+        }
+        if(resortPriceDTO.Price is null || resortPriceDTO.Price == ""){
+            throw new Exception("Price Invalid");
+        }
+        Resort resort = _resortRepo.Find(resortPriceDTO.ResortEmail);
+        resort.Price = resortPriceDTO.Price;
+        return resort.Price;
+    }
 }

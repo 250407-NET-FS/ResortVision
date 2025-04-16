@@ -160,7 +160,7 @@ app.MapGet(
 //  -Resorts can retrieve Bookings
 app.MapGet(
     "/Resort/booking",
-    (string email, IBookingService service) =>
+    (string email, IResortService service) =>
     {
         try
         {
@@ -173,21 +173,21 @@ app.MapGet(
     }
 );
 
-// //  -Resorts can update Price
-// app.MapPut(
-//     "/resort/price",
-//     (UpdateResortPriceDTO request, IBookingService service) =>
-//     {
-//         try
-//         {
-//             return Results.Ok(service.UpdateResortPrice(request));
-//         }
-//         catch (Exception ex)
-//         {
-//             return Results.Problem(ex.Message);
-//         }
-//     }
-// );
+//  -Resorts can update Price
+app.MapPut(
+    "/resort/price",
+    (UpdateResortPriceDTO request, IResortService service) =>
+    {
+        try
+        {
+            return Results.Ok(service.UpdateResortPrice(request));
+        }
+        catch (Exception ex)
+        {
+            return Results.Problem(ex.Message);
+        }
+    }
+);
 
 // //  -Customer can get Resort Perks
 // app.MapGet(

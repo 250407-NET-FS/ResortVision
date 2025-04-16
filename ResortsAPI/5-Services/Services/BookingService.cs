@@ -34,6 +34,12 @@ public class BookingService : IBookingService
         Resort resort = _resortRepo.Find(bookingDTO.ResortEmail);
         Customer customer = _customerRepo.Find(bookingDTO.CustomerEmail);
         Booking booking = new(customer, resort, resort.Price!);
+        decimal price = decimal.Parse(resort.Price!);
+        decimal balance = decimal.Parse(customer.Balance);
+        if(balance - price < 0){
+            throw new Exception("Customer Balance is too low to Book");
+        }
+        customer.Balance = (balance - price).ToString();
         return AddBooking(booking);
     }
 

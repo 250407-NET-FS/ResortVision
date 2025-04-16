@@ -70,14 +70,14 @@ public class CustomerService : ICustomerService
         if(balanceDTO.CustomerEmail is null || balanceDTO.CustomerEmail == ""){
             throw new Exception("Invalid Email");
         }
-        double balance_add = double.Parse(balanceDTO.Amount);
-        if(balance_add <= 0.00){
+        decimal balance_add = decimal.Parse(balanceDTO.Amount);
+        if(balance_add <= 0){
             throw new Exception("Amount must be Positive");
         }
         // get customer
         Customer customer = _customerRepo.Find(balanceDTO.CustomerEmail);
         // add balance
-        double balance = double.Parse(customer.Balance);
+        decimal balance = decimal.Parse(customer.Balance);
         balance += balance_add;
         customer.Balance = balance.ToString();
         // save to repo
