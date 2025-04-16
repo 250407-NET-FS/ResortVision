@@ -7,11 +7,11 @@ public class Resort(string Name, string Email, string Price){
 
     public string? Name { get; set; } = Name;
 
-    public List<Customer> Members { get; set; } = [];
+    public List<string> Members { get; set; } = [];
 
     public string? Price { get; set; } = Price;
 
     public List<string> Perks { get; set; } = [];
 
-    public List<Booking> Bookings { get; set; } = [];
+    public List<Guid> Bookings { get; set; } = [];
 }

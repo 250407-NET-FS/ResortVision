@@ -12,7 +12,7 @@ public class Customer(string FName, string LName, string Email)
 
     public string Balance { get; set; } = "0.00";
 
-    public List<Booking> Bookings { get; set; } = [];
+    public List<Guid> Bookings { get; set; } = [];
     
-    public List<Resort> Memberships { get; set; } = [];
+    public List<string> Memberships { get; set; } = [];
 }

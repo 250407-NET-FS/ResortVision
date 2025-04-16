@@ -46,14 +46,14 @@ public class CustomerService : ICustomerService
         
         // check if customer is already member
 
-        Resort shouldBeNull = customer.Memberships.Find(r => r.Email == resort.Email)!;
+        string shouldBeNull = customer.Memberships.Find(s => s == resort.Email)!;
         if(shouldBeNull is not null){
             throw new Exception("Customer is already Member");
         }
         // add membership
 
-        resort.Members.Add(customer);
-        customer.Memberships.Add(resort);
+        resort.Members.Add(customer.Email!);
+        customer.Memberships.Add(resort.Email!);
 
         // update repos
         _resortRepo.Update(resort);
