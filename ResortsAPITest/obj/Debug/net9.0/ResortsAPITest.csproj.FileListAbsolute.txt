@@ -121,3 +121,6 @@ C:\Users\eyesa\OneDrive\Desktop\Project1\IsaacW\ResortsAPITest\obj\Debug\net9.0\
 C:\Users\eyesa\OneDrive\Desktop\Project1\IsaacW\ResortsAPITest\obj\Debug\net9.0\ResortsAPITest.pdb
 C:\Users\eyesa\OneDrive\Desktop\Project1\IsaacW\ResortsAPITest\obj\Debug\net9.0\ResortsAPITest.genruntimeconfig.cache
 C:\Users\eyesa\OneDrive\Desktop\Project1\IsaacW\ResortsAPITest\obj\Debug\net9.0\ref\ResortsAPITest.dll
+C:\Users\eyesa\OneDrive\Desktop\Project1\IsaacW\ResortsAPITest\bin\Debug\net9.0\4-Data-Files\bookings.json
+C:\Users\eyesa\OneDrive\Desktop\Project1\IsaacW\ResortsAPITest\bin\Debug\net9.0\4-Data-Files\customers.json
+C:\Users\eyesa\OneDrive\Desktop\Project1\IsaacW\ResortsAPITest\bin\Debug\net9.0\4-Data-Files\resorts.json

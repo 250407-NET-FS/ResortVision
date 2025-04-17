@@ -75,29 +75,162 @@ Where Customer.Country = 'Brazil';
 Select COUNT(c.CustomerId), e.FirstName + ' ' + e.LastName 'Sales Agent' From Invoice i JOIN Customer c ON i.CustomerId = c.CustomerId JOIN Employee e ON c.SupportRepId = e.EmployeeId
 GROUP BY e.FirstName, e.LastName;
 
--- Which track was purchased the most ing 20010?
+-- Which track was purchased the most in 2010?
+select
+    COUNT(Track.Name) as count,
+    Track.Name,
+    Invoice.InvoiceDate
+from
+    InvoiceLine
+JOIN 
+    Track ON InvoiceLine.TrackId = Track.TrackId
+JOIN
+    Invoice ON InvoiceLine.InvoiceId = Invoice.InvoiceId
+WHERE
+    YEAR(Invoice.InvoiceDate) = 2010
+GROUP BY
+    Track.Name, Invoice.InvoiceDate
+ORDER BY
+    count DESC;
+
+There are 0 tracks
 
 -- Show the top three best selling artists.
 
+select TOP (3)
+    COUNT(Artist.Name) as Sold,
+    Artist.Name
+FROM
+    InvoiceLine
+JOIN
+    Track ON Track.TrackId = InvoiceLine.TrackId
+JOIN
+    Artist ON Track.Composer = Artist.Name
+Group BY
+    Artist.Name
+ORDER BY
+    Sold DESC;
+
 -- Which customers have the same initials as at least one other customer?
+
+SELECT 
+    FirstName,
+    LastName
+FROM 
+    Customer
+WHERE 
+    CONCAT(LEFT(FirstName, 1), LEFT(LastName, 1)) IN (
+        SELECT 
+            CONCAT(LEFT(FirstName, 1), LEFT(LastName, 1)) AS Initials
+        FROM 
+            Customer
+        GROUP BY 
+            CONCAT(LEFT(FirstName, 1), LEFT(LastName, 1))
+        HAVING 
+            COUNT(*) > 1
+    )
+ORDER BY 
+    LEFT(FirstName, 1), LEFT(LastName, 1);
 
 -- ADVACED CHALLENGES -- solve these with a mixture of joins, subqueries, CTE, and set operators. -- solve at least one of them in two different ways, and see if the execution -- plan for them is the same, or different.
 
 -- 1. which artists did not make any albums at all?
 
+select *
+From (
+    SELECT
+    Artist.Name,
+    COUNT(Album.ArtistId) as Albums
+FROM
+    Album
+RIGHT JOIN
+    Artist ON Album.ArtistId = Artist.ArtistId
+GROUP BY
+    Artist.ArtistId, Artist.Name
+) as ArtistAlbumCounts
+Where Albums = 0;
+
+CREATE TEMPORARY TABLE ArtistAlbumCounts AS
+SELECT
+    Artist.Name,
+    COUNT(Album.AlbumId) AS Albums
+FROM
+    Artist
+LEFT JOIN Album ON Album.ArtistId = Artist.ArtistId
+GROUP BY
+    Artist.ArtistId, Artist.Name;
+
+then query from this table the albums
+
 -- 2. which artists did not record any tracks of the Latin genre?
+
+WITH ArtistLatinTrackCounts AS (
+    SELECT
+        Artist.Name,
+        COUNT(CASE WHEN Genre.Name = 'Latin' THEN 1 ELSE NULL END) AS Count
+    FROM
+        Artist
+    LEFT JOIN Track ON Track.Composer = Artist.Name
+    LEFT JOIN Genre ON Track.GenreId = Genre.GenreId
+    GROUP BY
+        Artist.ArtistId, Artist.Name
+)
+SELECT * 
+FROM ArtistLatinTrackCounts AS a
+Where Count = 0;
 
 -- 3. which video track has the longest length? (use media type table)
 
+SELECT
+    Track.Milliseconds,
+    Track.Name
+FROM
+    Track
+JOIN
+    MediaType ON Track.MediaTypeId = MediaType.MediaTypeId
+WHERE
+    MediaType.Name LIKE '%video%'
+GROUP BY
+    Track.Milliseconds, Track.Name
+ORDER BY
+    Track.Milliseconds DESC;
+
 -- 4. find the names of the customers who live in the same city as the -- boss employee (the one who reports to nobody)
 
+WITH BossManCity AS(
+    SELECT City from Employee
+    Where ReportsTo = NULL
+)
+select e.FirstName, e.City
+FROM BossManCity as b
+JOIN
+    Employee e ON b.City = e.City;
+
 -- 5. how many audio tracks were bought by German customers, and what was -- the total price paid for them?
+
+
 
 -- 6. list the names and countries of the customers supported by an employee -- who was hired younger than 35.
 
 -- DML exercises
 
 -- 1. insert two new records into the employee table.
+
+INSERT INTO Employee (
+    EmployeeId, FirstName, LastName, Title, ReportsTo, BirthDate, HireDate, Address, 
+    City, [State], PostalCode, Phone, Fax, Email
+)
+VALUES (
+    9, 'Mama', 'Joe', 'Henchman', NULL, 
+    '1980-01-01',      -- BirthDate
+    '1999-09-09',      -- HireDate
+    '2423 klajf', 
+    'john', 'AR', 
+    '27564', 
+    '234234234',       -- Phone
+    '98275',           -- Fax
+    '23905@gmail.com'  -- Email
+);
 
 -- 2. insert two new records into the tracks table.
 
