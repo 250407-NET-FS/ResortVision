@@ -234,8 +234,43 @@ VALUES (
 
 -- 2. insert two new records into the tracks table.
 
+insert into Track(
+    TrackId, Name, AlbumId, MediaTypeId, GenreId,
+    Composer, Milliseconds, Bytes, UnitPrice)
+VALUES (
+    3504, 'The Joe', 1, 1, 1, 'AC/DC',
+    11234, 523476253, 0.99
+);
+
+insert into Track(
+    TrackId, Name, AlbumId, MediaTypeId, GenreId,
+    Composer, Milliseconds, Bytes, UnitPrice)
+VALUES (
+    3505, 'Manson', 1, 1, 1, 'AC/DC',
+    11234, 523476253, 0.99
+);
+
 -- 3. update customer Aaron Mitchell's name to Robert Walter
+
+UPDATE Customer
+SET FirstName = 'Robert', LastName = 'Walter'
+WHERE FirstName = 'Aaron' AND LastName = 'Mitchell';
 
 -- 4. delete one of the employees you inserted.
 
+DELETE FROM Employee
+WHERE Title = 'Henchman';
+
 -- 5. delete customer Robert Walter.
+
+DELETE FROM InvoiceLine
+WHERE InvoiceId IN (
+    SELECT InvoiceId FROM Invoice
+    WHERE CustomerId = 32
+);
+
+DELETE FROM Invoice
+WHERE CustomerId = 32;
+
+DELETE FROM Customer
+WHERE CustomerId = 32;
