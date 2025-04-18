@@ -40,6 +40,7 @@ public class BookingService : IBookingService
             throw new Exception("Customer Balance is too low to Book");
         }
         customer.Balance = (balance - price).ToString();
+        _customerRepo.Update(customer);
         return AddBooking(booking);
     }
 
