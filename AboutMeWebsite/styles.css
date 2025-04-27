@@ -1,0 +1,25 @@
+h1 {
+    color: lawngreen;
+    font-size: xx-large;
+}
+
+h2 {
+    color:lawngreen;
+    font-size: x-large;
+}
+
+p {
+    color: aqua;
+}
+
+ul {
+    color: aqua;
+}
+
+body {
+    background-color: black;
+}
+
+head {
+    background-color: black;
+}
